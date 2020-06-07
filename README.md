@@ -5,7 +5,7 @@ Project Creation June 7,2020.
 Bikeshare Project
 
 ### Description
-Describe what your project is about and what it does
+The Bikeshare Project takes data from three cities and displays data user chooses for city on month, day, users.
 
 ### Files used
 Include the files used
