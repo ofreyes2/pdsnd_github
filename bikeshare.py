@@ -233,7 +233,7 @@ def main():
         time_stats(df)
         station_stats(df)
         trip_duration_stats(df)
-        user_stats(df)
+        user_stats(df)S
         raw_data(df)
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
@@ -243,3 +243,7 @@ def main():
 
 if __name__ == "__main__":
 	main()
+
+
+    
+/* oscar f reyes worked on this project*/
