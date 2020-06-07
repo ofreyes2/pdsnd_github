@@ -20,7 +20,7 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    
+
 #****************************************************************************************************
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     #city = input('Enter a city chicago, new york city, or washington: ').lower()
@@ -32,8 +32,8 @@ def get_filters():
         else:
             print ('"{}" IS INCORRECT\n *****CHECK YOUR SPELLING OR "{}" IS NOT ON THE LIST******'.format(city,city))
             #break
-        
-            
+
+
 #**************************************************************************************
 # TO DO: get user input for month (all, january, february, ... , june)
     while True:
@@ -44,7 +44,7 @@ def get_filters():
         else:
             print('"{}" IS INCORRECT\n *****CHECK YOUR SPELING OR "{}" IS NOT ON THE LIST******'.format(month,month))
             #break
-        
+
 #*****************************************************************************************
 # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
@@ -55,7 +55,7 @@ def get_filters():
         else:
             print('"{} IS INCORRECT\n ******CHECK YOUR SPELLING OR {} IS NOT ON THE THE LIST******'.format(day,day))
             #break
-        
+
 #*******************************************************************************************
     print('-'*40)
     return city, month, day
@@ -74,22 +74,22 @@ def load_data(city, month, day):
     """
     # load file into a dataframe
     df = pd.read_csv(CITY_DATA[city])
-    
+
     # Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
-    
-    
+
+
     df['month'] = df['Start Time'].dt.month
     df['weekday'] = df['Start Time'].dt.weekday_name
     df['hour'] = df['Start Time'].dt.hour
-    
-    
+
+
     if month != 'all':
         month = MONTHS.index(month) + 1
-        df = df[df['month'] == month]            
-    
+        df = df[df['month'] == month]
+
     if day != 'all':
-        df = df[df['weekday'] == day.title()]         
+        df = df[df['weekday'] == day.title()]
 
     return df
 
@@ -107,8 +107,8 @@ def time_stats(df):
 
     # TO DO: display the most common day of week
     most_common_day_of_week = df['weekday'].value_counts().idxmax()
-    print("The most common day of the week was: ", most_common_day_of_week.upper()) 
-   
+    print("The most common day of the week was: ", most_common_day_of_week.upper())
+
     # TO DO: display the most common start hour
     most_common_start_hour = df['hour'].value_counts().idxmax()
     if most_common_start_hour >= 13 and most_common_start_hour <= 23:
@@ -122,9 +122,9 @@ def time_stats(df):
         meridiem = 'am'
     else:
         most_common_start_hour = most_common_start_hour
-        meridiem = 'am' 
+        meridiem = 'am'
 
-    
+
     print("The most common start hour of the day was: ", most_common_start_hour,meridiem)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -183,7 +183,7 @@ def user_stats(df):
         print("Total:\n",user_type_count.to_string())
     else:
         print("\nNo User type column")
-        
+
     # TO DO: Display counts of gender
     if 'Gender' in df.columns:
         gender_count = df['Gender'].value_counts()
@@ -202,19 +202,19 @@ def user_stats(df):
         print("The earliest birth year is: ", earliest_year_birth)
     else:
         print("\nNo Birth Year column")
-                       
+
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
-    
+
+
 def raw_data(df):
 # PULL 5 ROWS OF RAW DATA AT A TIME FROM USER RESPONSE OF YES OR NO
     n=0
     while True:
-        proceed = input("\n\nWould you like to see 5 blocks of raw data: yes or no?:  ").lower()        
-        
-        if proceed =='yes': 
+        proceed = input("\n\nWould you like to see 5 blocks of raw data: yes or no?:  ").lower()
+
+        if proceed =='yes':
             #rows = df.iloc[n:n+5]
             rows = df.iloc[n:n+5]
             n = n+5
@@ -224,7 +224,7 @@ def raw_data(df):
             break
         else:
             print("YOU TYPED INCORRECTLY PLEASE TYPE yes or no")
-            
+
 def main():
     while True:
         city, month, day = get_filters()
@@ -234,10 +234,8 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-        
-        
         raw_data(df)
-    
+
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
