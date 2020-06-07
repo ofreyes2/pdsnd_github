@@ -10,13 +10,13 @@ The Bikeshare Project takes data from three cities and displays data user choose
 ### Files used
 chicago.csv,
 new_york_csv,
-wshington.csv, 
+wshington.csv
 
 ### Credits
-google.com
-stackoverflow.com
-git-scm.com
-udacity.com
-git-tower.com
-atlassian.com
+google.com,
+stackoverflow.com,
+git-scm.com,
+udacity.com,
+git-tower.com,
+atlassian.com,
 swcarpentry.github.io
