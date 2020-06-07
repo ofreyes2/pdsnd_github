@@ -8,7 +8,9 @@ Bikeshare Project
 The Bikeshare Project takes data from three cities and displays data user chooses for city on month, day, users.
 
 ### Files used
-Include the files used
+chicago.csv
+new_york_csv
+wshington.csv
 
 ### Credits
 It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
