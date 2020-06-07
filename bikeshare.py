@@ -25,7 +25,7 @@ def get_filters():
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     #city = input('Enter a city chicago, new york city, or washington: ').lower()
     while True:
-        city = input('Enter a city name chicago, new york city, or washington: ').lower()
+        city = input('Enter a city chicago, new york city, or washington: ').lower()
         if city in (CITY_DATA.keys()):
            #return city
            break
@@ -234,10 +234,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-
-
         raw_data(df)
-
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
@@ -245,3 +242,7 @@ def main():
 
 if __name__ == "__main__":
 	main()
+
+
+
+#oscar f reyes worked on this project*/
